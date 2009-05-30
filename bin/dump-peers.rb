@@ -11,6 +11,8 @@
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 ## General Public License (in the file COPYING) for more details.
 
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+
 require "rubytorrent"
 
 def die(x); $stderr << "#{x}\n" && exit(-1); end
