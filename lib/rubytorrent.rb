@@ -11,6 +11,8 @@
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 ## General Public License (in the file COPYING) for more details.
 
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+
 require 'rubytorrent/util'
 require 'rubytorrent/bencoding'
 require 'rubytorrent/metainfo'

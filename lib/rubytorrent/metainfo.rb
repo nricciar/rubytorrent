@@ -163,6 +163,10 @@ class MetaInfo
     end
   end
 
+  def mii
+    @s
+  end
+
   def self.from_bstream(bs)
     dict = nil
     bs.each do |e|
