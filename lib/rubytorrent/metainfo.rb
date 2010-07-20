@@ -131,7 +131,7 @@ end
 
 class MetaInfo
   def initialize(dict=nil)
-    raise TypeError, "argument must be a Hash (maybe see MetaInfo.from_location)" unless dict.is_a? Hash
+    raise TypeError, "argument must be a Hash (maybe see MetaInfo.from_location)" unless dict.nil? || dict.is_a?(Hash)
     @s = TypedStruct.new do |s|
       s.field :info => MetaInfoInfo, :announce => URI::HTTP,
               :announce_list => Array, :creation_date => Time,
