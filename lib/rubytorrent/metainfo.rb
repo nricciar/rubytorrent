@@ -135,12 +135,14 @@ class MetaInfo
     @s = TypedStruct.new do |s|
       s.field :info => MetaInfoInfo, :announce => URI::HTTP,
               :announce_list => Array, :creation_date => Time,
-              :comment => String, :created_by => String, :encoding => String
+              :comment => String, :created_by => String, :encoding => String,
+	      :url_list => URI::HTTP
       s.label :announce_list => "announce-list", :creation_date => "creation date",
-              :created_by => "created by"
+              :created_by => "created by", :url_list => "url-list"
       s.array :announce_list
       s.coerce :info => lambda { |x| MetaInfoInfo.new(x) },
                :creation_date => lambda { |x| Time.at(x) },
+	       :url_list => lambda { |x| URI.parse(x) },
                :announce => lambda { |x| URI.parse(x) },
                :announce_list => lambda { |x| x.map { |y| y.map { |z| URI.parse(z) } } }
     end
